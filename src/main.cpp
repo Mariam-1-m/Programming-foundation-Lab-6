@@ -26,6 +26,7 @@ c3=c1/c2;
 cout<<"Complex result after division :"<<endl;
 c3.getComplex();
 
+cout<<"==========================================="<<endl;
 c3=c1+3;
 cout<<"Complex result after addition to int :"<<endl;
 c3.getComplex();
@@ -43,6 +44,7 @@ c3=c1/3;
 cout<<"Complex result after division by int :"<<endl;
 c3.getComplex();
 
+cout<<"==========================================="<<endl;
 
 
 c3=3+c1;

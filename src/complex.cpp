@@ -11,7 +11,7 @@ using namespace std;
 
   
     Complex::Complex(double real=0,double img=0){
-     cout<<"intialize complex object!"<<endl;
+    //  cout<<"intialize complex object!"<<endl;
      this->real=real;
      this->img=img;
     }
@@ -55,7 +55,13 @@ using namespace std;
         }
 
          Complex Complex::operator/(const Complex & other)const{
+            if(other.real!=0 && other.img!=0){
             return Complex(this->real/other.real,this->img/other.img);
+
+            }else{
+                 cout<<"Can't divide by zero!"<<endl;
+                return Complex(0,0);
+            }
         }
 
      
@@ -72,25 +78,37 @@ using namespace std;
         }
 
         Complex Complex::operator/(int n) const {
+            if(n!=0){
             return Complex(this->real/n,this->img);
+            }else{
+                cout<<"Can't divide by zero!"<<endl;
+                return Complex(0,0);
+            }
+
         }
         Complex::~Complex(){
-            cout<<"Good By Complex :: "<<endl;
+            // cout<<"Good By Complex :: "<<endl;
         }
 
 
-Complex operator+ (int x,const Complex & c){
+Complex operator+ (int n,const Complex & c){
 
-    return Complex(c.getReal()+x,c.getImg());
+    return Complex(n+c.getReal(),c.getImg());
 }
 
 Complex operator-(int n ,const Complex & c){
-    return Complex(c.getReal()-n,c.getImg());
+    return Complex(n-c.getReal(),c.getImg());
 }
 
 Complex operator*(int n ,const Complex & c){
-    return Complex(c.getReal()*n,c.getImg());
+    return Complex(n*c.getReal(),c.getImg());
 }
 Complex operator/(int n ,const Complex & c){
-    return Complex(c.getReal()/n,c.getImg());
+    if(c.getReal()!=0){
+    return Complex(n/c.getReal(),c.getImg());
+
+    }else{
+         cout<<"Can't divide by zero!"<<endl;
+         return Complex(0,0);
+    }
 }
